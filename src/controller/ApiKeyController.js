@@ -1,10 +1,16 @@
-// const dotenv = require('dotenv');
-// dotenv.config({
-//     path: __dirname + '/.env'
-// });
+const dotenv = require('dotenv');
+dotenv.config({
+    path: __dirname + '/.env'
+});
 
 exports.getApiKey = function(req, res) {
-    res.send({
-        ApiKey: process.env.API_KEY
-    })
+    try {
+        res.send({
+            ApiKey: process.env.API_KEY
+        })
+    } catch (e) {
+        res.send({
+            Error: e.errorText
+        })
+    }
 }

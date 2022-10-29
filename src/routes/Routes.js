@@ -1,4 +1,6 @@
-module.exports = function (app) {
+module.exports = (app) => {
     const apiKey= require('../controller/ApiKeyController');
-    app.route('/getApiKey').get(apiKey.getApiKey);
+    const router = require('express').Router();
+    router.get('/news-api-key', apiKey.getApiKey);
+    app.use('/api/keys', router);
 }
