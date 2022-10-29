@@ -5,6 +5,6 @@ dotenv.config({
 
 exports.getApiKey = function(req, res) {
     res.send({
-        ApiKey: process.env['API_KEY']
+        ApiKey: "process.env['API_KEY']"
     })
 }
